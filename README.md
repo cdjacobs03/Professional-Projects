@@ -1,4 +1,4 @@
-Archived System Online Script Overview
+Archived System Online Script Overview: 
 This script was created as a replacement for an antivirus feature that was being phased out.
 
 What the script does:   
