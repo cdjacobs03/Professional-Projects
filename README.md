@@ -34,6 +34,5 @@ This PowerShell script is designed to identify and recover missing `Data.xml` fi
 - Identifies files that were skipped during the initial `robocopy` sync due to cloud-only availability.
 - Triggers the download of those cloud-based files locally.
 - Copies the recovered files into their corresponding job folders.
-- Helps maintain complete file sets across all job directories.
 
 
