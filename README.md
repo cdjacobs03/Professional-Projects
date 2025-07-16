@@ -22,3 +22,18 @@ This script is designed to revert the Windows 11 right-click (context) menu back
 - Re-enables the full, classic right-click menu immediately—without requiring the extra step.  
 - Helps improve workflow efficiency by restoring familiar functionality from Windows 10.
 
+---
+
+**CloudSync Recovery for Missing Data.xml Files:**
+
+This PowerShell script is designed to identify and recover missing `Data.xml` files within job folders when a standard `robocopy` operation fails to copy them—typically due to the files not being downloaded locally from a cloud storage system (e.g., OneDrive or SharePoint). It ensures that all required files are present by locating the missing ones, downloading them from the cloud, and placing them into their correct destination folders.
+
+**What It Does:**
+
+- Scans destination job folders for missing `Data.xml` files.
+- Identifies files that were skipped during the initial `robocopy` sync due to cloud-only availability.
+- Triggers the download of those cloud-based files locally.
+- Copies the recovered files into their corresponding job folders.
+- Helps maintain complete file sets across all job directories.
+
+
