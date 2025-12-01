@@ -1,4 +1,5 @@
 **Archived System Online Script Overview:**  
+
 This script was created as a replacement for an antivirus feature that was being phased out.
 
 **What the script does:**  
@@ -12,11 +13,13 @@ This script was created as a replacement for an antivirus feature that was being
 ---
 
 **Bitlocker Status Check & Remediation:**
+
+
 This Script is designed to check on All systems Bitlocker status daily, to ensure the system is fully Encrypted and Secured. If there is anything wrong with the status, the script will automatically resolve the issue and silently output the details to an RMM for the tech to review. 
 
 If the script was not able to resolve the issue, it will send an email to the queue for immediate assistance on the basis of the issue. Ex. System is running Windows Home and not Pro, System is a Virtual Machine, or simply if the script was not able to remediate. 
 
-**What It Does***
+**What It Does**
 
 - Checks BitLocker status, encryption percentage, and key protector configuration.
 - Automatically remediates missing TPM or numerical password protectors.
