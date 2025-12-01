@@ -1,0 +1,48 @@
+# PowerShell script to copy all Data.xml files into their designated job folders.
+
+$sourceRoot = "C:\Users\Frank\Planswift OneDrive\OneDrive - Atkins Weatherproofing\Planswift10\Jobs"
+$destinationRoot = "C:\Users\Frank\Planswift10\Jobs"
+
+# Grab all job folders from sourceRoot
+$jobFolders = Get-ChildItem -Path $sourceRoot -Directory
+
+# Parse through each job, find, and copy Data.xml file
+foreach ($job in $jobFolders) {
+
+    # Set source and destination file paths
+    $sourceFile = Join-Path $job.FullName "Data.xml"
+    $destinationFolder = Join-Path $destinationRoot $job.Name
+    $destinationFile = Join-Path $destinationFolder "Data.xml"
+
+    # Copy only if source exists and destination file is missing
+    if (Test-Path $sourceFile) {
+        if (-not (Test-Path $destinationFile)) {
+
+            # Try to hydrate cloud-only file (force download from OneDrive)
+            try {
+                [void][System.IO.File]::OpenRead($sourceFile).Close()
+            } catch {
+                Write-Warning "OneDrive file not available locally: $($job.Name)"
+                Start-Sleep -Seconds 1
+                continue
+            }
+
+            # Ensure destination folder exists
+            if (-not (Test-Path $destinationFolder)) {
+                New-Item -Path $destinationFolder -ItemType Directory | Out-Null
+            }
+
+            # Copy the file
+            Copy-Item -Path $sourceFile -Destination $destinationFile
+            Write-Host "Copied Data.xml to $($job.Name)"
+        }
+        else {
+            Write-Host "Skipped $($job.Name): Data.xml already exists"
+             
+        }
+    }
+    else {
+        Write-Warning "Source missing Data.xml for $($job.Name)"
+       
+    }
+}
