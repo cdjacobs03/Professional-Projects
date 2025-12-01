@@ -54,4 +54,19 @@ This PowerShell script is designed to identify and recover missing `Data.xml` fi
 
 ---
 
+**Install RICOH C4500 Printer Driver**
+
+
+This Script pushes and installs a popular printer at a major corporation we managed. It checks whether the Ricoh printer driver INF file already exists, and if not, it extracts and renames the driver folder from a ZIP file. It then proceeds with installing the correct printer driver so the system can use the Ricoh IM C4500 PCL 6 printer.
+
+**What It Does**
+
+
+- Extracts and verifies Ricoh C4500 driver files before installation begins.
+- Installs printer driver using pnputil and registers it system-wide.
+- Creates printer port for specified IP address if missing.
+- Installs Ricoh C4500 printer using correct driver and network port.
+
+---
+
 
